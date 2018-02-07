@@ -1,0 +1,24 @@
+sudo: required
+services:
+- docker
+before_install:
+  - curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo
+  - chmod a+x /usr/bin/repo
+script:
+  - repo init -u https://github.com/denysvitali/tegra-nouveau-rootfs.git -m tegra-nouveau.xml
+  - repo sync -j4 -c
+  - export TOP=$PWD
+  - export ARCH=aarch64
+  - ./scripts/download-gcc
+  - ./scripts/download-rootfs
+  - ./scripts/prepare-rootfs
+  - sudo tar -cvf out/rootfs.tar.gz -C out/target/aarch64/ArchLinuxArm/ .
+deploy:
+  provider: releases
+  api_key:
+    secure: iAxinDCeXOe0ejli7qZ5GXAZb2lgXgMll27hEBZnTYm8kyNzCX9RV6mWbaQkafMpg9yaBlywRzlKxyIQGYkw1qFSZOYXMOO9XF42n0XIkL5vl4m7fcFMcgBSqc1VvWlxCNSeWXN4dkAtGBmWmBsU5VqBZAYdPBnTMh2vef1DDkPoNh5ht+mTKhBCQzsq+0dmHTnckghahQLdVmj1oufUSE41bJVnWOFRKUXYZglGZVPmnQpZ38kzMoJPoy8MievZFVlrozOlK1U0pb0Iv8q8C61QrRGXaN3RSqKXPlw08+f1caQbKPyg4pCdFjqLFYR5ve608WmJudj0Ui176tvbAPEJNM3dhB+aWw8ctUjVNqql8h7dDPRpasRV7nfE2iEGRsaTfgl1GljJH1/CdOelWpT3HmBNn1ZQxeJnOHkeFGH7Itc4L4c3dWh75dYbO8vhLcal1gJyxx4DRj3U3Y+f9KHhTtfTxQX8UrXCY/NgjEW6TragfU3+hZjG1LT2/KLaWVdqOhstxHp9X8kL+4PMhI0z9/7bvbkaVXEbSuS6u5ix++jtiGBdlCMtWuQkAu44HgShIHgVH3HFC4iVGC7jicar1wwoeSYfDc+wk4DJS7s6bpJWQb06aUlKj7GHrEx7Tfykf9Hz8qlPj7Aw8Rxi65LdGFCrLaE0sC3jZ2ZjLtQ=
+  file: "out/rootfs.tar.gz"
+
+  on:
+    repo: denysvitali/tegra-nouveau
+    branch: master
