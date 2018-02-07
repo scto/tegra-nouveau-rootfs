@@ -2,7 +2,7 @@ sudo: required
 services:
 - docker
 before_install:
-  - sudo curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo
+  - sudo sh -c 'curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo'
   - sudo chmod a+x /usr/bin/repo
 script:
   - repo init -u https://github.com/denysvitali/tegra-nouveau-rootfs.git -m tegra-nouveau.xml
