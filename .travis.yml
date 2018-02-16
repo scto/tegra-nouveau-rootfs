@@ -5,11 +5,11 @@ before_install:
 - sudo sh -c 'curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo'
 - sudo chmod a+x /usr/bin/repo
 - git config --global color.ui true
-script:
 - repo init -u https://github.com/denysvitali/tegra-nouveau-rootfs.git -m tegra-nouveau.xml
 - repo sync -j4 -c
 - export TOP=$PWD
 - export ARCH=aarch64
+script:
 - "./scripts/download-gcc"
 - "./scripts/download-rootfs"
 - "./scripts/prepare-rootfs"
