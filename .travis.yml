@@ -9,6 +9,7 @@ before_install:
 - repo sync -j4 -c
 - export TOP=$PWD
 - export ARCH=aarch64
+- sudo apt install -y proot
 script:
 - "./scripts/download-gcc"
 - "./scripts/download-rootfs"
