@@ -2,24 +2,22 @@ sudo: required
 services:
 - docker
 before_install:
-  - sudo sh -c 'curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo'
-  - sudo chmod a+x /usr/bin/repo
-  - git config --global color.ui true
+- sudo sh -c 'curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo'
+- sudo chmod a+x /usr/bin/repo
+- git config --global color.ui true
 script:
-  - repo init -u https://github.com/denysvitali/tegra-nouveau-rootfs.git -m tegra-nouveau.xml
-  - repo sync -j4 -c
-  - export TOP=$PWD
-  - export ARCH=aarch64
-  - ./scripts/download-gcc
-  - ./scripts/download-rootfs
-  - ./scripts/prepare-rootfs
-  - sudo tar -cvf out/rootfs.tar.gz -C out/target/aarch64/ArchLinuxArm/ .
+- repo init -u https://github.com/denysvitali/tegra-nouveau-rootfs.git -m tegra-nouveau.xml
+- repo sync -j4 -c
+- export TOP=$PWD
+- export ARCH=aarch64
+- "./scripts/download-gcc"
+- "./scripts/download-rootfs"
+- "./scripts/prepare-rootfs"
+- sudo tar -cvf out/rootfs.tar.gz -C out/target/aarch64/ArchLinuxArm/ .
 deploy:
   provider: releases
   api_key:
-    secure: iAxinDCeXOe0ejli7qZ5GXAZb2lgXgMll27hEBZnTYm8kyNzCX9RV6mWbaQkafMpg9yaBlywRzlKxyIQGYkw1qFSZOYXMOO9XF42n0XIkL5vl4m7fcFMcgBSqc1VvWlxCNSeWXN4dkAtGBmWmBsU5VqBZAYdPBnTMh2vef1DDkPoNh5ht+mTKhBCQzsq+0dmHTnckghahQLdVmj1oufUSE41bJVnWOFRKUXYZglGZVPmnQpZ38kzMoJPoy8MievZFVlrozOlK1U0pb0Iv8q8C61QrRGXaN3RSqKXPlw08+f1caQbKPyg4pCdFjqLFYR5ve608WmJudj0Ui176tvbAPEJNM3dhB+aWw8ctUjVNqql8h7dDPRpasRV7nfE2iEGRsaTfgl1GljJH1/CdOelWpT3HmBNn1ZQxeJnOHkeFGH7Itc4L4c3dWh75dYbO8vhLcal1gJyxx4DRj3U3Y+f9KHhTtfTxQX8UrXCY/NgjEW6TragfU3+hZjG1LT2/KLaWVdqOhstxHp9X8kL+4PMhI0z9/7bvbkaVXEbSuS6u5ix++jtiGBdlCMtWuQkAu44HgShIHgVH3HFC4iVGC7jicar1wwoeSYfDc+wk4DJS7s6bpJWQb06aUlKj7GHrEx7Tfykf9Hz8qlPj7Aw8Rxi65LdGFCrLaE0sC3jZ2ZjLtQ=
-  file: ./out/rootfs.tar.gz
-
+    secure: RXGQqJQ99KRjcYqitN+TDNFiH45V6Js8vrLvzmHmp2d0Lql6DWrhiRTzHPQS8WMG6LjuwLdAk72p9mOiIXGibORmNqS+Psf5DkCwCpLF5QberNDx8wtVDGRlYlLZoR2qJDwV2lv3KMNXWYjT76YKK4NT9XOpt7tqVxdj8s/nDMpCYIhq63GsmbrRZp3u05ixbXJQajzxCu4ml9zVUSokR1shFJAuvio91XSPxj0SOtcfdQ1agPsQNhhI09ZKRLOIcoyqKy6HirF7D6w9qPgAM4MsKfJWjRk6xQVxA7aTlSYMDyD6jZdskdd+kqV1T4Dy6BCE6vO4mlJkv7HSHVRhXVqmPiINPplBWrjM3ZPaDGMUtCAjW3VUdWgPU1u/Tm2LDb2M6HIupQj+SaLoW8rnNR8r2loz7wkdlqYq/cPF4MXQgIm+tyZfau3KPyskoQBTd9bC+9FbwbA5gTCHI42VlDxXpFld0rXU0r6bY0mEDj6DkHyRakyNY8A+8RsIe81Y3b8nL/uMcTTNpV3QISGSs4sZAH+/ihMzIRaxTBfUpjeGEJH/koZIudKgmt7j47jyAl6T1uLYeIzq3nUSvgiDwlQ2kKCEGpyS0m+1b3dNhj5vUkMphBsxy+Svt+VaRXrntaNJYv83ovoBevX/pySBwNsBBEc7HwrV57TyMRs+FYU=
+  file: out/rootfs.tar.gz
   on:
     repo: denysvitali/tegra-nouveau-rootfs
-    branch: master
