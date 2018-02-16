@@ -5,16 +5,16 @@ before_install:
 - sudo sh -c 'curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo'
 - sudo chmod a+x /usr/bin/repo
 - git config --global color.ui true
-- repo init -u https://github.com/denysvitali/tegra-nouveau-rootfs.git -m tegra-nouveau.xml 1> /dev/null
-- repo sync -j4 -c 1> /dev/null
+- "repo init -u https://github.com/denysvitali/tegra-nouveau-rootfs.git -m tegra-nouveau.xml 1> /dev/null"
+- "repo sync -j4 -c 1> /dev/null"
 - export TOP=$PWD
 - export ARCH=aarch64
-- sudo apt install -y proot 1> /dev/null
+- "sudo apt install -y proot 1> /dev/null"
 script:
 - "./scripts/download-gcc"
-- "./scripts/download-rootfs" 1> /dev/null
+- "./scripts/download-rootfs 1> /dev/null"
 - "./scripts/prepare-rootfs"
-- sudo tar -cvf out/rootfs.tar.gz -C out/target/aarch64/ArchLinuxArm/ . 1> /dev/null
+- "sudo tar -cvf out/rootfs.tar.gz -C out/target/aarch64/ArchLinuxArm/ . 1> /dev/null"
 deploy:
   provider: releases
   api_key:
