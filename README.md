@@ -2,6 +2,7 @@ Tegra Nouveau Installer Scripts
 ===============================
 ![Build
 Status](https://api.travis-ci.org/denysvitali/tegra-nouveau-rootfs.svg?branch=master)
+
 These scripts aim at providing an simple way to enable the open-source graphics stack (Nouveau/Mesa) on Jetson TK1/TX1. It does so by automating the process of cross-compiling the necessary software and adapting a new or already-existing Arch Linux root filesystem to run Nouveau/Mesa as an alternative to the closed-source graphics stack.
 
 Following the instructions of this file will perform the following:
