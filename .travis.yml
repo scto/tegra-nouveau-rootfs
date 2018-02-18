@@ -5,16 +5,16 @@ before_install:
 - sudo sh -c 'curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo'
 - sudo chmod a+x /usr/bin/repo
 - git config --global color.ui true
-- "repo init -u https://github.com/denysvitali/tegra-nouveau-rootfs.git -m tegra-nouveau.xml 1> /dev/null"
-- "repo sync -j4 -c 1> /dev/null"
+- "repo init -u https://github.com/denysvitali/tegra-nouveau-rootfs.git -m tegra-nouveau.xml > /dev/null"
+- "repo sync -j4 -c > /dev/null"
 - export TOP=$PWD
 - export ARCH=aarch64
-- "sudo apt install -y proot 1> /dev/null"
+- "sudo apt install -y proot > /dev/null"
 script:
-- "./scripts/download-gcc 1> /dev/null"
-- "./scripts/download-rootfs 1> /dev/null"
-- "./scripts/prepare-rootfs 1> /dev/null"
-- "./scripts/generate-rootfs 1> /dev/null"
+- "./scripts/download-gcc > /dev/null"
+- "./scripts/download-rootfs > /dev/null"
+- "./scripts/prepare-rootfs > /dev/null"
+- "./scripts/generate-rootfs > /dev/null"
 deploy:
   provider: releases
   api_key:
