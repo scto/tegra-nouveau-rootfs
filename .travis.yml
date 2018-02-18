@@ -11,10 +11,10 @@ before_install:
 - export ARCH=aarch64
 - "sudo apt install -y proot 1> /dev/null"
 script:
-- "./scripts/download-gcc"
+- "./scripts/download-gcc 1> /dev/null"
 - "./scripts/download-rootfs 1> /dev/null"
-- "./scripts/prepare-rootfs"
-- "./scripts/generate-rootfs"
+- "./scripts/prepare-rootfs 1> /dev/null"
+- "./scripts/generate-rootfs 1> /dev/null"
 deploy:
   provider: releases
   api_key:
