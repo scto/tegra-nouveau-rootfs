@@ -7,7 +7,7 @@
   <remote name="gnurou" fetch="https://github.com/Gnurou/"/>
   <remote name="denvit" fetch="https://github.com/denysvitali/"/>
   <remote name="samt" fetch="https://github.com/Samt43/"/>
-  <remote name="tagr" fetch="git://people.freedesktop.org/~tagr/mesa"/>
+  <remote name="tagr" fetch="git://people.freedesktop.org/~tagr/"/>
 
   <default revision="master"/>
 
