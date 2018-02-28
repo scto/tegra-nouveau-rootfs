@@ -14,11 +14,12 @@ script:
 - "./scripts/download-gcc > /dev/null"
 - "./scripts/download-rootfs > /dev/null"
 - "./scripts/prepare-rootfs > /dev/null"
+- "./scripts/build-linux > /dev/null"
+- "./scripts/build-mesa > /dev/null"
+- "./scripts/build-kmscube > /dev/null"
 - "./scripts/generate-rootfs > /dev/null"
 deploy:
   provider: releases
-  api_key:
-    secure: RXGQqJQ99KRjcYqitN+TDNFiH45V6Js8vrLvzmHmp2d0Lql6DWrhiRTzHPQS8WMG6LjuwLdAk72p9mOiIXGibORmNqS+Psf5DkCwCpLF5QberNDx8wtVDGRlYlLZoR2qJDwV2lv3KMNXWYjT76YKK4NT9XOpt7tqVxdj8s/nDMpCYIhq63GsmbrRZp3u05ixbXJQajzxCu4ml9zVUSokR1shFJAuvio91XSPxj0SOtcfdQ1agPsQNhhI09ZKRLOIcoyqKy6HirF7D6w9qPgAM4MsKfJWjRk6xQVxA7aTlSYMDyD6jZdskdd+kqV1T4Dy6BCE6vO4mlJkv7HSHVRhXVqmPiINPplBWrjM3ZPaDGMUtCAjW3VUdWgPU1u/Tm2LDb2M6HIupQj+SaLoW8rnNR8r2loz7wkdlqYq/cPF4MXQgIm+tyZfau3KPyskoQBTd9bC+9FbwbA5gTCHI42VlDxXpFld0rXU0r6bY0mEDj6DkHyRakyNY8A+8RsIe81Y3b8nL/uMcTTNpV3QISGSs4sZAH+/ihMzIRaxTBfUpjeGEJH/koZIudKgmt7j47jyAl6T1uLYeIzq3nUSvgiDwlQ2kKCEGpyS0m+1b3dNhj5vUkMphBsxy+Svt+VaRXrntaNJYv83ovoBevX/pySBwNsBBEc7HwrV57TyMRs+FYU=
   file: out/rootfs.tar.gz
   on:
     repo: vartom/tegra-nouveau-rootfs
