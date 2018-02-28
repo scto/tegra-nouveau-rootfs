@@ -11,7 +11,7 @@
   <default revision="master"/>
 
   <!-- Build scripts -->
-  <project path="scripts" name="tegra-rootfs-scripts.git" remote="vartom"/>
+  <project path="scripts" name="tegra-rootfs-scripts.git" remote="vartom" revision="vartom-patch-1"/>
 
   <!-- Boot, Kernel and Nouveau modules -->
   <project path="linux" name="linux-smaug.git" remote="vartom" revision="linux-4.15.y"/>
