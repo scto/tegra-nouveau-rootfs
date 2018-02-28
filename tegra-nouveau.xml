@@ -6,15 +6,18 @@
   <remote name="nvidia" fetch="https://github.com/NVIDIA/"/>
   <remote name="gnurou" fetch="https://github.com/Gnurou/"/>
   <remote name="denvit" fetch="https://github.com/denysvitali/"/>
-
+  <remote name="vartom" fetch="https://github.com/vartom/"/>
+  
   <default revision="master"/>
 
   <!-- Build scripts -->
-  <project path="scripts" name="tegra-rootfs-scripts.git" remote="denvit"/>
+  <project path="scripts" name="tegra-rootfs-scripts.git" remote="vartom"/>
 
   <!-- Boot, Kernel and Nouveau modules -->
-  <project path="linux" name="linux-smaug.git" remote="denvit" revision="4.15"/>
+  <project path="linux" name="linux-smaug.git" remote="vartom" revision="linux-4.15.y"/>
+  <!--
   <project path="nouveau" name="nouveau.git" remote="gnurou" revision="staging/work"/>
+  -->
   <project path="linux-firmware" name="firmware/linux-firmware.git" remote="kernel" revision="master"/>
 
 
@@ -22,9 +25,9 @@
   <!--
   <project path="libinput" name="wayland/libinput.git" remote="freedesktop" revision="refs/tags/0.10.0"/>
   <project path="pthread-stubs" name="xcb/pthread-stubs.git" remote="freedesktop" revision="refs/tags/0.3"/>
-  <project path="drm" name="drm" remote="gnurou" revision="fb_modifiers"/>
   <project path="wayland" name="wayland/wayland.git" remote="freedesktop" revision="refs/tags/1.11.0"/>
   -->
+  <project path="drm" name="drm" remote="gnurou" revision="fb_modifiers"/>
   <project path="mesa" name="mesa.git" remote="gnurou" revision="renderonly"/>
   <project path="kmscube" name="kmscube.git" remote="gnurou" revision="master"/>
   <!--
