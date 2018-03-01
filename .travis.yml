@@ -18,13 +18,11 @@ script:
 - "./scripts/build-mesa > /dev/null"
 - "./scripts/build-kmscube > /dev/null"
 - "./scripts/generate-rootfs > /dev/null"
-
-stage: GitHub Release
-
 deploy:
   provider: releases
   api_key: $GITHUB_OAUTH_TOKEN
   file: out/rootfs.tar.gz
+  skip_cleanup: true
   on:
      repo: vartom/tegra-nouveau-rootfs
     all_branches: true
