@@ -20,7 +20,6 @@ script:
 - "./scripts/generate-rootfs > /dev/null"
 deploy:
   provider: releases
-    api_key:
   file: out/rootfs.tar.gz
   on:
     repo: vartom/tegra-nouveau-rootfs
