@@ -21,6 +21,7 @@ script:
 deploy:
   provider: releases
     api_key:
+       secure: 
   file: out/rootfs.tar.gz
   on:
     repo: vartom/tegra-nouveau-rootfs
