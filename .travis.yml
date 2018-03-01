@@ -5,11 +5,14 @@ before_install:
 - sudo sh -c 'curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo'
 - sudo chmod a+x /usr/bin/repo
 - git config --global color.ui true
-- "repo init -u https://github.com/vartom/tegra-nouveau-rootfs.git -b vartom-patch-1 -m tegra-nouveau.xml > /dev/null"
-- "repo sync -j4 -c > /dev/null"
+- repo init -u https://github.com/vartom/tegra-nouveau-rootfs.git -b vartom-patch-1
+  -m tegra-nouveau.xml > /dev/null
+- repo sync -j4 -c > /dev/null
 - export TOP=$PWD
 - export ARCH=aarch64
-- "sudo apt install -y proot git build-essential wget phablet-tools autoconf automake libtool libc6-i386 lib32stdc++6 lib32z1 pkg-config libwayland-dev bison flex bc u-boot-tools glib-2.0 libffi-dev xutils-dev python-mako intltool libxml2-dev > /dev/null"
+- sudo apt install -y proot git build-essential wget phablet-tools autoconf automake
+  libtool libc6-i386 lib32stdc++6 lib32z1 pkg-config libwayland-dev bison flex bc
+  u-boot-tools glib-2.0 libffi-dev xutils-dev python-mako intltool libxml2-dev > /dev/null
 script:
 - "./scripts/download-gcc > /dev/null"
 - "./scripts/download-rootfs > /dev/null"
@@ -20,9 +23,9 @@ script:
 - "./scripts/generate-rootfs > /dev/null"
 deploy:
   provider: releases
-  api_key: $GITHUB_OAUTH_TOKEN
+  api_key:
+    secure: MlMuXaC/1bbilBLXQCi+JUC//4COyjsnPQludsHiyR9zcKTqHY9rMovA5F3W0sesf+dqiMpPPJM1s9771/1PpAFyuk3+uuMAA90/UA/ZJItIc0iw1wUU640ljetzPECB6c0pYzPP8Un3OTlZVzCj9yxQDJT4TEY5ccub4NivIlMAj/1qnteQzIrpOgVFSsCzUI6shHXG6flzmRbQ9it/yh6sWRfWtRS+rqTHu3NL5dWoxM4Q+uCF0I5An6WJ6HDK/qpoxEBuBHMVUticsk5w/cRL4aVoU9r+A67b7RSab0oHVm5dTcPVzzUgJzgqK7sRAfQA7kth+ewC4U5XuSsNPT8nW4Uctq26N2FI3qjj7CqrCxkTtl5g4UPtBunT/A089ARMoXQcdCTw3dCUXhZSrXD9+OiTTfCp7iCcZ0BCpac8i84LcV3bUzdjK9a/O/Rmqc0EoFI9mRkzQ76Q0p6qVEdl54hCQ2MMJa9gEZ9XfaQgAcJSmZgTZi+Wv14B1okDrCd8NQ7PSvsjBBasSy9fFYrURICywOPsgTKqC4u+osByxrKhIIGbS0JsbKLu4WWK3a0HqaILtyxo7wy+2/cTFDRh8KirEq2g8x+KonDqrO7lM6zl2tl9gC+mk7Z9Np7JuCnQt9nixvrzmDbYQtAEfJ+5p3fy65zTYPjXWGVBcO4=
   file: out/rootfs.tar.gz
-  skip_cleanup: true
   on:
-     repo: vartom/tegra-nouveau-rootfs
-    all_branches: true
+    repo: vartom/tegra-nouveau-rootfs
+    branch: vartom-patch-1
