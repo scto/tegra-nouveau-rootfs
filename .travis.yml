@@ -19,6 +19,8 @@ script:
 - "./scripts/build-kmscube > /dev/null"
 - "./scripts/generate-rootfs > /dev/null"
 
+stage: GitHub Release
+
 deploy:
   provider: releases
   api_key: $GITHUB_OAUTH_TOKEN
