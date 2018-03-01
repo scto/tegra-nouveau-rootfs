@@ -15,9 +15,3 @@ script:
 - "./scripts/download-rootfs > /dev/null"
 - "./scripts/prepare-rootfs"
 - "./scripts/generate-rootfs > /dev/null"
-deploy:
-  provider: releases
-   file: out/rootfs.tar.gz
-  on:
-    repo: vartom/tegra-nouveau-rootfs
-    all_branches: true
