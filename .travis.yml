@@ -28,5 +28,6 @@ deploy:
   file: out/rootfs.tar.gz
   skip_cleanup: true
   on:
+    tags: true
     repo: vartom/tegra-nouveau-rootfs
     all_branches: true
