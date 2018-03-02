@@ -30,4 +30,4 @@ deploy:
   on:
     tags: true
     repo: vartom/tegra-nouveau-rootfs
-    all_branches: true
+    branch: vartom-patch-1
