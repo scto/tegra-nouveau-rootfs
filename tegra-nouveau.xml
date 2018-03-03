@@ -7,7 +7,8 @@
   <remote name="gnurou" fetch="https://github.com/Gnurou/"/>
   <remote name="denvit" fetch="https://github.com/denysvitali/"/>
   <remote name="vartom" fetch="https://github.com/vartom/"/>
-  
+  <remote name="tagr" fetch="git://people.freedesktop.org/~tagr/"/>
+
   <default revision="master"/>
 
   <!-- Build scripts -->
@@ -27,9 +28,8 @@
   <project path="pthread-stubs" name="xcb/pthread-stubs.git" remote="freedesktop" revision="refs/tags/0.3"/>
   <project path="wayland" name="wayland/wayland.git" remote="freedesktop" revision="refs/tags/1.11.0"/>
   -->
-  <project path="drm" name="drm" remote="gnurou" revision="fb_modifiers"/>
-
-  <project path="mesa" name="mesa.git" remote="gnurou" revision="renderonly"/>
+  <project path="drm" name="drm" remote="tagr" revision="master"/>
+  <project path="mesa" name="mesa.git" remote="tagr" revision="master"/>
   <project path="kmscube" name="kmscube.git" remote="gnurou" revision="master"/>
   <!--
   <project path="weston" name="weston.git" remote="gnurou" revision="fb_modifiers"/>
