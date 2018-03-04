@@ -15,7 +15,7 @@
   <project path="scripts" name="tegra-rootfs-scripts.git" remote="vartom" revision="vartom-patch-1"/>
 
   <!-- Boot, Kernel and Nouveau modules -->
-  <project path="linux" name="linux-smaug.git" remote="vartom" revision="linux-4.15.y"/>
+  <project path="linux" name="linux" remote="vartom" revision="for-4.17/work"/>
   <!--
   <project path="nouveau" name="nouveau.git" remote="gnurou" revision="staging/work"/>
   -->
