@@ -6,8 +6,8 @@ before_install:
 - sudo chmod a+x /usr/bin/repo
 - git config --global color.ui true
 - wget http://dri.freedesktop.org/libdrm/libdrm-2.4.91.tar.bz2
-      tar -jxvf libdrm-2.4.91.tar.bz2
-      cd libdrm-2.4.91 && ./configure --prefix=$HOME/prefix --enable-vc4 --enable-freedreno --enable-etnaviv-experimental-api && make install
+- tar -jxvf libdrm-2.4.91.tar.bz2
+- cd libdrm-2.4.91 && ./configure --prefix=$HOME/prefix --enable-vc4 --enable-freedreno --enable-etnaviv-experimental-api && make install
 
 - repo init -u https://github.com/vartom/tegra-nouveau-rootfs.git -b vartom-patch-1
   -m tegra-nouveau.xml > /dev/null
