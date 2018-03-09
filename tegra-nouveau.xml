@@ -30,7 +30,7 @@
   
   <project path="drm" name="drm" remote="tagr" revision="master"/>
   -->
-  <project path="mesa" name="mesa.git" remote="tagr" revision="tegra-v2"/>
+  <project path="mesa" name="mesa/mesa.git" remote="freedesktop" revision="master"/>
   <project path="kmscube" name="kmscube.git" remote="gnurou" revision="master"/>
   <!--
   <project path="weston" name="weston.git" remote="gnurou" revision="fb_modifiers"/>
