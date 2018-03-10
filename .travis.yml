@@ -1,10 +1,28 @@
 sudo: required
 services:
 - docker
+
+cache:
+  apt: true
+  ccache: true
+
+env:
+  global:
+    - PKG_CONFIG_PATH=$HOME/prefix/lib/pkgconfig:$HOME/prefix/share/pkgconfig
+    - LD_LIBRARY_PATH="$HOME/prefix/lib:$LD_LIBRARY_PATH"
+    - PATH="$HOME/prefix/bin:$PATH"
+
 before_install:
 - sudo sh -c 'curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo'
 - sudo chmod a+x /usr/bin/repo
 - git config --global color.ui true
+- repo init -u https://github.com/vartom/tegra-nouveau-rootfs.git -b vartom-patch-1
+  -m tegra-nouveau.xml > /dev/null
+- repo sync -j4 -c > /dev/null
+- export TOP=$PWD
+- export ARCH=aarch64
+
+install:
 - wget http://xorg.freedesktop.org/releases/individual/proto/dri2proto-2.8.tar.bz2
 - tar -jxvf dri2proto-2.8.tar.bz2
 - cd dri2proto-2.8 && ./configure --prefix=$HOME/prefix && make install
@@ -17,11 +35,7 @@ before_install:
 - tar -jxvf libdrm-2.4.91.tar.bz2
 - cd libdrm-2.4.91 && ./configure --prefix=$HOME/prefix --enable-vc4 --enable-freedreno --enable-etnaviv-experimental-api && make install
 - cd ..
-- repo init -u https://github.com/vartom/tegra-nouveau-rootfs.git -b vartom-patch-1
-  -m tegra-nouveau.xml > /dev/null
-- repo sync -j4 -c > /dev/null
-- export TOP=$PWD
-- export ARCH=aarch64
+
 - sudo apt install -y proot git build-essential wget phablet-tools autoconf automake
   libtool libc6-i386 lib32stdc++6 lib32z1 pkg-config libwayland-dev bison flex bc
   u-boot-tools glib-2.0 libffi-dev xutils-dev python-mako intltool libxml2-dev > /dev/null
