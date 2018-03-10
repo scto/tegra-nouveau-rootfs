@@ -6,12 +6,6 @@ cache:
   apt: true
   ccache: true
 
-env:
-  global:
-    - PKG_CONFIG_PATH=$HOME/prefix/lib/pkgconfig:$HOME/prefix/share/pkgconfig
-    - LD_LIBRARY_PATH="$HOME/prefix/lib:$LD_LIBRARY_PATH"
-    - PATH="$HOME/prefix/bin:$PATH"
-
 before_install:
 - sudo sh -c 'curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo'
 - sudo chmod a+x /usr/bin/repo
