@@ -31,7 +31,7 @@
 
   <project path="drm" name="drm/libdrm.git" remote="freedesktop" revision="master"/>
   <project path="mesa" name="mesa/mesa.git" remote="freedesktop" revision="master"/>
-  <project path="kmscube" name="kmscube.git" remote="gnurou" revision="master"/>
+  <project path="kmscube" name="mesa/kmscube.git" remote="freedesktop" revision="master"/>
   <!--
   <project path="weston" name="weston.git" remote="gnurou" revision="fb_modifiers"/>
   <project path="xserver" name="xserver.git" remote="gnurou" revision="fb_modifiers"/>
