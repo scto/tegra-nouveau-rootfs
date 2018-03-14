@@ -20,14 +20,12 @@ before_install:
 install:
 - sudo apt install -y proot git build-essential wget phablet-tools autoconf automake
   libtool libc6-i386 lib32stdc++6 lib32z1 pkg-config libwayland-dev bison flex bc
-  u-boot-tools libglib2.0-dev libffi-dev xutils-dev python-mako intltool libxml2-dev
+  u-boot-tools libglib2.0-dev libffi-dev xutils-dev python-mako intltool libxml2-dev > /dev/null
 script:
 - "./scripts/download-gcc > /dev/null"
 - "./scripts/download-rootfs > /dev/null"
 - "./scripts/prepare-rootfs > /dev/null"
 - "./scripts/build-drm > /dev/null"
-- "./scripts/build-wayland-protocols"
-- "./scripts/build-wayland"
 - "./scripts/build-mesa"
 - "./scripts/build-kmscube > /dev/null"
 - "./scripts/generate-rootfs > /dev/null"
