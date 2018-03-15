@@ -1,1 +1,1 @@
-2018-03-13- mesa +wl without HAVE_PLATFORM_WAYLAND
+2018-03-13- mesa +wl  HAVE_PLATFORM_WAYLAND + enable-libraries
