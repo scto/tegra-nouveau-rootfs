@@ -5,6 +5,8 @@ services:
 cache:
   apt: true
   ccache: true
+  
+Configure options: --host=aarch64-linux-gnu --target=aarch64-linux-gnu
 
 before_install:
 - sudo sh -c 'curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo'
@@ -15,7 +17,6 @@ before_install:
 - repo sync -j4 -c > /dev/null
 - export TOP=$PWD
 - export ARCH=aarch64
-- ./configure --build=x86_64-unknown-linux-gnu --host=aarch64-linux-gnu --target=aarch64-linux-gnu
 - sudo chmod a+x $TOP/scripts/build-wayland-protocols
 install:
 - sudo apt install -y proot git build-essential wget phablet-tools autoconf automake
