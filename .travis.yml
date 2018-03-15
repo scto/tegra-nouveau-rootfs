@@ -25,8 +25,10 @@ script:
 - "./scripts/download-gcc > /dev/null"
 - "./scripts/download-rootfs > /dev/null"
 - "./scripts/prepare-rootfs > /dev/null"
+- "./scripts/build-wayland-protocols"
+- "./scripts/build-wayland"
 - "./scripts/build-drm > /dev/null"
-- "./scripts/build-mesa > /dev/null"
+- "./scripts/build-mesa"
 - "./scripts/build-kmscube > /dev/null"
 - "./scripts/generate-rootfs > /dev/null"
 deploy:
