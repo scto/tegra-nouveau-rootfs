@@ -2,6 +2,12 @@ sudo: required
 services:
 - docker
 
+env:
+  global:
+    - PKG_CONFIG_PATH=$HOME/prefix/lib/pkgconfig:$HOME/prefix/share/pkgconfig
+    - LD_LIBRARY_PATH="$HOME/prefix/lib:$LD_LIBRARY_PATH"
+    - PATH="$HOME/prefix/bin:$PATH"
+
 cache:
   apt: true
   ccache: true
@@ -21,8 +27,8 @@ before_install:
 - sudo chmod a+x $TOP/scripts/build-wayland-protocols
 install:
 - sudo apt install -y proot git build-essential wget phablet-tools binfmt-support qemu qemu-user-static autoconf automake
-  libtool libc6-i386 lib32stdc++6 lib32z1 pkg-config libwayland-dev bison flex bc
-  u-boot-tools libglib2.0-dev libffi-dev xutils-dev python-mako intltool libxml2-dev > /dev/null
+  libtool libc6-i386 lib32stdc++6 lib32z1 pkg-config libwayland-dev bison flex bc libedit-dev
+  u-boot-tools libglib2.0-dev libffi-dev xutils-dev python-mako intltool libxml2-dev llvm-4.0-dev libx11-xcb-dev x11proto-xf86vidmode-dev
 script:
 - "./scripts/download-gcc > /dev/null"
 - "./scripts/download-rootfs > /dev/null"
