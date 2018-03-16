@@ -26,9 +26,9 @@ before_install:
 
 - sudo chmod a+x $TOP/scripts/build-wayland-protocols
 install:
-- sudo apt install -y proot git build-essential wget phablet-tools binfmt-support qemu qemu-user-static autoconf automake
-  libtool libc6-i386 lib32stdc++6 lib32z1 pkg-config libwayland-dev bison flex bc libedit-dev
-  u-boot-tools libglib2.0-dev libffi-dev xutils-dev python-mako intltool libxml2-dev libx11-xcb-dev x11proto-xf86vidmode-dev
+- sudo apt install -y proot git phablet-tools qemu qemu-user-static libexpat1-dev xz-utils
+  libtool libc6-i386 lib32stdc++6 lib32z1 libwayland-dev libedit-dev
+  u-boot-tools xutils-dev python-mako intltool > /dev/null
 script:
 - "./scripts/download-gcc > /dev/null"
 - "./scripts/download-rootfs > /dev/null"
