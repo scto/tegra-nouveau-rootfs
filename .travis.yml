@@ -6,7 +6,7 @@ cache:
   apt: true
   ccache: true
   
-Configure options: --host=aarch64-linux-gnu --target=aarch64-linux-gnu
+Configure options: --host=aarch64-linux-gnu --target=aarch64-linux-gnu --static
 
 before_install:
 - sudo sh -c 'curl https://storage.googleapis.com/git-repo-downloads/repo > /usr/bin/repo'
