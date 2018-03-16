@@ -17,7 +17,7 @@ before_install:
 - repo sync -j4 -c > /dev/null
 - export TOP=$PWD
 - export ARCH=aarch64
-- export QEMU_LD_PREFIX="$SYSROOT/usr/lib/aarch64-linux-gnu"
+
 - sudo chmod a+x $TOP/scripts/build-wayland-protocols
 install:
 - sudo apt install -y proot git build-essential wget phablet-tools binfmt-support qemu qemu-user-static autoconf automake
