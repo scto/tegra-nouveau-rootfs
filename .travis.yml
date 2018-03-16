@@ -28,7 +28,7 @@ before_install:
 install:
 - sudo apt install -y proot git build-essential wget phablet-tools binfmt-support qemu qemu-user-static autoconf automake
   libtool libc6-i386 lib32stdc++6 lib32z1 pkg-config libwayland-dev bison flex bc libedit-dev
-  u-boot-tools libglib2.0-dev libffi-dev xutils-dev python-mako intltool libxml2-dev llvm-4.0-dev libx11-xcb-dev x11proto-xf86vidmode-dev
+  u-boot-tools libglib2.0-dev libffi-dev xutils-dev python-mako intltool libxml2-dev libjsoncpp1 llvm-4.0 llvm-4.0-dev llvm-4.0-runtime libx11-xcb-dev x11proto-xf86vidmode-dev
 script:
 - "./scripts/download-gcc > /dev/null"
 - "./scripts/download-rootfs > /dev/null"
