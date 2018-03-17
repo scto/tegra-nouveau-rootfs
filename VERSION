@@ -1,1 +1,2 @@
 2018-03-13- mesa +wl  -HAVE_PLATFORM_WAYLAND + enable-libraries
+-ldm
