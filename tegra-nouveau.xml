@@ -31,7 +31,7 @@
   <project path="wayland-protocols" name="wayland/wayland-protocols.git" remote="freedesktop" revision="refs/tags/1.13"/>
  -->
   <project path="drm" name="drm/libdrm.git" remote="freedesktop" revision="master"/>
-  <project path="mesa" name="mesa.git" remote="tagr" revision="tegra-v5"/>
+  <project path="mesa" name="mesa.git" remote="tagr" revision="master"/>
   <project path="kmscube" name="mesa/kmscube.git" remote="freedesktop" revision="master"/>
   <!--
   <project path="weston" name="weston.git" remote="gnurou" revision="fb_modifiers"/>
